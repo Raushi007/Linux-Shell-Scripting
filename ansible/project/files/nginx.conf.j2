@@ -1,0 +1,18 @@
+events {
+  worker_connections   2000;
+}
+http {
+    upstream myapp {
+        {% for ip in groups.webservers %}
+            server {{ ip }};
+        {% endfor %}
+    }
+
+    server {
+        listen 80;
+
+        location / {
+            proxy_pass http://myapp;
+        }
+    }
+}

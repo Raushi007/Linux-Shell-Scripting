@@ -1,0 +1,21 @@
+- name: This playbook installs httpd software
+  hosts: all
+  become: true
+  tasks:
+    - name: Installing httpd software
+      yum:
+        name: httpd
+        state: present
+    - name: Installing VIM software
+      yum:
+        name: vim
+        state: latest
+    - name: Copying the index.html file
+      copy:
+        src: index.html
+        dest: /var/www/html/index.html
+        mode: 0755
+    - name: Starting the httpd service
+      service:
+        name: httpd
+        state: started

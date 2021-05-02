@@ -1,0 +1,18 @@
+---
+- name: Configuring Nginx load balancer
+  hosts: nginx
+  become: true
+  user: ubuntu
+  tasks:
+    - name: Installing nginx
+      apt:
+        name: nginx
+        state: present
+
+    - name: Creating the configuration file for our website mysite
+      template:
+        src: files/nginx.conf.j2 
+        dest: /etc/nginx/nginx.conf
+    
+    - name: Restarting the nginx service
+      service: name=nginx state=restarted
