@@ -1,7 +1,6 @@
-#!/bin/sh
+#!/bin/bash
 clear
 declare -a alphas=('ant' 'bat' 'cat' 'dog' 'eagle')
-
 numbers[0]='a'
 numbers[1]='1'
 numbers[2]='22'
