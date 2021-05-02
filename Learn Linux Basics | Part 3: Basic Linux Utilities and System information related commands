@@ -1,0 +1,88 @@
+Basic Linux Utilities:
+
+man <name> - Read the manual page of <name>
+
+man <section> <name> - Read the manual page of <name>, related to the given section. 
+
+man -k <editor> - Output all the software whose man pages contain <editor> keyword.
+
+man -K <keyword> - Outputs all man pages containing <keyword> within them.
+
+apropos <editor> - Output all the applications whose one line description matches the word editor. When not able to recall the name of the application, use this command.
+
+help - In Bash shell, this will display the list of all available bash commands.
+
+help <name> - In Bash shell, this will display the list of all available bash commands. 
+
+info <name> - View all the information about <name>.
+
+dpkg -l - Output a list of all installed packages on a Debian-based system.
+
+dpkg -L packageName - Will list out the files installed and path details for a given package on Debian.
+
+dpkg -l | grep -i <edit> - Return all .deb installed packages with <edit> irrespective of cases.
+
+less /var/lib/dpkg/available - Return descriptions of all available packages.
+
+whatis vim - List a one-line description of vim.
+
+<command-name> --help - Display usage information about the <tool-name>. Sometimes command       -h also works, but not for all commands.
+
+User identification and who is who in Linux world:
+
+hostname  - Display hostname of the system.
+hostname -f - Displays Fully Qualified Domain Name (FQDN) of the system.
+passwd - Change password of current user.
+whoami - Username of the users logged in at the terminal.
+who - List of all the users currently logged in as a user.
+w - Display current system status, time, duration, list of users currently logged in on system and other user information.
+last - Who recently used the system.
+last root - When was the last time root logged in as user.
+lastb - Shows all bad login attempts into the system.
+
+Process related information:
+top - List all processes sorted by their current system resource usage. Displays a continually updated display of processes (By default 3 seconds). Use q key to exit top.
+ps - List processes currently running on current shell session
+ps -u root - List all of the processes and commands root is running
+ps aux - List all the processes by all users on the current system
+
+Detecting Linux distribution name and version:
+On Debian:
+lsb_release -a
+
+On Ubuntu:
+lsb_release -a
+
+If lsb_release not installed then try: 
+cat /etc/issue
+
+Detect what systemd-based distribution os have run:
+cat /etc/os-release
+(for red-hat run: cat /etc/redhat-release)
+
+Print information about the current system:
+uname [OPTION]
+e.g. -a or --all - Prints all information, omitting -p and -i if the information is unknown.
+run: 
+uname -a
+All The options:
+-s, --kernel-name - Print the kernel name.
+-n, --nodename - Print the network node hostname.
+-r, --kernel-release - Print the kernel release.
+-v, --kernel-version - Print the kernel version.
+-m, --machine - Print the machine hardware name.
+-p, --processor - Print the processor type, or "unknown".
+-i, --hardware-platform - Print the hardware platform, or "unknown".
+-o, --operating-system - Print the operating system.
+--help - Display a help message, and exit.
+--version - Display version information, and exit.
+
+Find your linux os (both debian & rpm) name and release number:
+cat /etc/*release
+
+
+
+
+Note: If you want to try above commands without any risk, use Docker, so install docker and use below docker commands to run a Linux cotainer and use the shell, e.g. as in tutorial I have shown:
+docker run -it ubuntu:16.04 /bin/bash 
+But you can use any linux OS , it's your choice. Docker Tutorial Link: https://www.youtube.com/watch?v=Y56FMHC1mb8
